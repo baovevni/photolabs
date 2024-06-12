@@ -7,7 +7,7 @@ function PhotoFavButton() {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleClick = () => {
-    setIsFavorite(!isFavorite);
+    setIsFavorite(prevIsFavorite => !prevIsFavorite);
     console.log("Favorited!");
   }
 
