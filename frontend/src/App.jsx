@@ -35,12 +35,13 @@ const sampleDataForPhotoListItem = [{
 }
 ]
 
-const photos = sampleDataForPhotoListItem.map((photo) => {
-  return <PhotoListItem key={photo.id} photo={photo} />;
-});
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  const photos = sampleDataForPhotoListItem.map((photo) => {
+    return <PhotoListItem key={photo.id} photo={photo} />;
+  });
+  
   return (
     <div className="App">
       {photos}
