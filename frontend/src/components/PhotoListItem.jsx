@@ -4,7 +4,7 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
 
-const PhotoListItem = ({ photo, isFavorite, toggleFavorite }) => {
+const PhotoListItem = ({ photo, isFavorite, toggleFavorite, setIsModalOpen }) => {
   const handleFavoriteTongle = () => {
     toggleFavorite(photo.id);
   };
@@ -19,6 +19,7 @@ const PhotoListItem = ({ photo, isFavorite, toggleFavorite }) => {
       <img className="photo-list__image"
         src={photo.urls.regular}
         alt={`Photo by ${photo.user.username}`}
+        onClick={() => {setIsModalOpen(true)}}
       />
       <div className="photo-list__user-details">
         <img

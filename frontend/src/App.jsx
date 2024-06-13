@@ -8,6 +8,7 @@ import photos from 'mocks/photos';
 
 const App = () => {
   const [favoritePhotos, setFavoritePhotos] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const toggleFavorite = (photoId) => {
     if (favoritePhotos.includes(photoId)) {
@@ -23,9 +24,10 @@ const App = () => {
         photos={photos}
         topics={topics}
         favoritePhotos={favoritePhotos}
-        toggleFavorite={toggleFavorite} 
+        toggleFavorite={toggleFavorite}
+        setIsModalOpen={setIsModalOpen} 
       />
-      <PhotoDetailsModal />
+      {isModalOpen && <PhotoDetailsModal setIsModalOpen={setIsModalOpen}/>}
     </div>
   );
 };
