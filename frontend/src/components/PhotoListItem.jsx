@@ -4,13 +4,28 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
 
-const PhotoListItem = ({ photo, onFavoriteToggle }) => {
+const PhotoListItem = ({ photo, isFavorite, toggleFavorite }) => {
+  const handleFavoriteTongle = () => {
+    toggleFavorite(photo.id);
+  };
+  
   return (
     <div className="photo-list__item">
-      <PhotoFavButton photo={photo} onFavoriteToggle={onFavoriteToggle}/>
-      <img className="photo-list__image" src={photo.urls.regular} alt={`Photo by ${photo.user.username}`} />
+      <PhotoFavButton
+        photo={photo}
+        isFavorite={isFavorite}
+        onFavoriteToggle={handleFavoriteTongle}
+      />
+      <img className="photo-list__image"
+        src={photo.urls.regular}
+        alt={`Photo by ${photo.user.username}`}
+      />
       <div className="photo-list__user-details">
-        <img className="photo-list__user-profile" src={photo.user.profile} alt={`${photo.user.username}'s profile`} />
+        <img
+          className="photo-list__user-profile"
+          src={photo.user.profile}
+          alt={`${photo.user.username}'s profile`}
+        />
         <div className="photo-list__user-info">
           {photo.user.username}
           <div className="photo-list__user-location">{photo.location.city}, {photo.location.country}</div>
