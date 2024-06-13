@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import topics from 'mocks/topics';
 import photos from 'mocks/photos';
 
@@ -24,6 +25,7 @@ const App = () => {
         favoritePhotos={favoritePhotos}
         toggleFavorite={toggleFavorite} 
       />
+      <PhotoDetailsModal />
     </div>
   );
 };
