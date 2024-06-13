@@ -57,11 +57,11 @@ const sampleDataForPhotoList = [
   },
 ];
 
-const PhotoList = () => {
+const PhotoList = ({ onFavoriteToggle }) => {
   return (
     <ul className="photo-list">
       {sampleDataForPhotoList.map((photo) => (
-        <PhotoListItem key={photo.id} photo={photo} />
+        <PhotoListItem key={photo.id} photo={photo} onFavoriteToggle={onFavoriteToggle}/>
       ))}
     </ul>
   );

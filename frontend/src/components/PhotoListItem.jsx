@@ -4,10 +4,10 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
 
-const PhotoListItem = ({ photo }) => {
+const PhotoListItem = ({ photo, onFavoriteToggle }) => {
   return (
     <div className="photo-list__item">
-      <PhotoFavButton photo={photo}/>
+      <PhotoFavButton photo={photo} onFavoriteToggle={onFavoriteToggle}/>
       <img className="photo-list__image" src={photo.urls.regular} alt={`Photo by ${photo.user.username}`} />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={photo.user.profile} alt={`${photo.user.username}'s profile`} />
