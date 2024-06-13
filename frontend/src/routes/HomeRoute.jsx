@@ -5,7 +5,7 @@ import PhotoList from '../components/PhotoList';
 import TopNavigationBar from '../components/TopNavigationBar';
 import photos from 'mocks/photos';
 
-const HomeRoute = ({ photos, favoritePhotos, toggleFavorite, setIsModalOpen }) => {
+const HomeRoute = ({ photos, favoritePhotos, toggleFavorite, setIsModalOpen, setSelectedPhoto }) => {
 
   return (
     <div className="home-route">
@@ -15,6 +15,7 @@ const HomeRoute = ({ photos, favoritePhotos, toggleFavorite, setIsModalOpen }) =
         favoritePhotos={favoritePhotos}
         toggleFavorite={toggleFavorite} 
         setIsModalOpen={setIsModalOpen}
+        setSelectedPhoto={setSelectedPhoto}
       />
     </div>
   );
