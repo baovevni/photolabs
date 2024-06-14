@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton( { isFavorite, onFavoriteToggle }) {
+function PhotoFavButton( { photo, isFavorite, onFavoriteToggle }) {
 
   const handleClick = () => {
     onFavoriteToggle();

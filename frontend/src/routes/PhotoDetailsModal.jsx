@@ -14,6 +14,7 @@ const PhotoDetailsModal = ({ setIsModalOpen, photo, toggleFavorite, favoritePhot
       </button>
 
       <div className="photo-details-modal__top-bar">
+      <div>
       <PhotoFavButton
         photo={photo}
         isFavorite={isFavorite}
@@ -21,30 +22,35 @@ const PhotoDetailsModal = ({ setIsModalOpen, photo, toggleFavorite, favoritePhot
         <img src={photo.urls.full}
           alt={`Photo by ${photo.user.username}`} className="photo-details-modal__image" />
       </div>
+      </div>
 
-      <div className="photo-list__user-details">
+      <div>
+        <div className="photo-details-modal__photographer-details">
         <img
-          className="photo-list__user-profile"
+          className="photo-details-modal__photographer-profile"
           src={photo.user.profile}
           alt={`${photo.user.username}'s profile`}
         />
-        <div className="photo-list__user-info">
+        <div className="photo-details-modal__photographer-info">
           {photo.user.username}
-          <div className="photo-list__user-location">{photo.location.city}, {photo.location.country}</div>
+          <div className="photo-details-modal__photographer-location">{photo.location.city}, {photo.location.country}</div>
         </div>
       </div>
+      </div>
 
-      <div>
+      <div className='photo-details-modal__header'>
         <h3>Similar Photos</h3>
       </div>
 
-      <div>
+      <div className='photo-details-modal__images'>
+        <div>
         <PhotoList
           photos={photo.similar_photos}
           toggleFavorite={toggleFavorite}
           favoritePhotos={favoritePhotos}
           setIsModalOpen={setIsModalOpen}
         />
+        </div>
       </div>
 
     </div>

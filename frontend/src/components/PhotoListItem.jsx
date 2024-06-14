@@ -18,7 +18,7 @@ const PhotoListItem = ({ photo, isFavorite, toggleFavorite, setIsModalOpen, setS
   return (
     <div className="photo-list__item">
       <PhotoFavButton
-        photo={photo}
+        photo={photo.id}
         isFavorite={isFavorite}
         onFavoriteToggle={handleFavoriteToggle}
       />

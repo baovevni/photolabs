@@ -11,6 +11,10 @@ const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
+  const handleFavoriteToggle = () => {
+    toggleFavorite(photos.photoId);
+  };
+  
   const toggleFavorite = (photoId) => {
     if (favoritePhotos.includes(photoId)) {
       setFavoritePhotos(favoritePhotos.filter((id) => id !== photoId))
@@ -18,6 +22,7 @@ const App = () => {
       setFavoritePhotos([...favoritePhotos, photoId])
     }
   }
+
 
   return (
     <div className="App">
@@ -28,12 +33,14 @@ const App = () => {
         toggleFavorite={toggleFavorite}
         setIsModalOpen={setIsModalOpen} 
         setSelectedPhoto={setSelectedPhoto}
+        handleFavoriteToggle={handleFavoriteToggle}
       />
       {isModalOpen && <PhotoDetailsModal 
                         setIsModalOpen={setIsModalOpen} 
                         photo={selectedPhoto}
                         toggleFavorite={toggleFavorite}
                         favoritePhotos={favoritePhotos}
+                        handleFavoriteToggle={handleFavoriteToggle}
                       />}
     </div>
   );
