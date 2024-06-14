@@ -14,7 +14,7 @@ function PhotoFavButton( { photo, isFavorite, onFavoriteToggle }) {
   return (
     <div className='photo-list__fav-icon'>
         <div className='photo-list__fav-icon-svg' onClick={handleClick}>
-          <FavIcon selected={isFavorite} displayAlert={false} />
+          <FavIcon photo={photo.id} selected={isFavorite} displayAlert={false} />
         </div>
     </div>
   );

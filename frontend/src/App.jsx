@@ -5,23 +5,20 @@ import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import topics from 'mocks/topics';
 import photos from 'mocks/photos';
+import useFavorite from 'hooks/useFavorite';
 
 const App = () => {
-  const [favoritePhotos, setFavoritePhotos] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-
-  const handleFavoriteToggle = () => {
-    toggleFavorite(photos.photoId);
-  };
-  
-  const toggleFavorite = (photoId) => {
-    if (favoritePhotos.includes(photoId)) {
-      setFavoritePhotos(favoritePhotos.filter((id) => id !== photoId))
-    } else {
-      setFavoritePhotos([...favoritePhotos, photoId])
-    }
-  }
+  const {
+    favoritePhotos,
+    isModalOpen,
+    selectedPhoto,
+    toggleFavorite,
+    handleFavoriteToggle,
+    handleImageClick,
+    setIsModalOpen,
+    setSelectedPhoto,
+    isFavorite
+  } = useFavorite();
 
 
   return (
@@ -31,17 +28,20 @@ const App = () => {
         topics={topics}
         favoritePhotos={favoritePhotos}
         toggleFavorite={toggleFavorite}
-        setIsModalOpen={setIsModalOpen} 
+        setIsModalOpen={setIsModalOpen}
         setSelectedPhoto={setSelectedPhoto}
         handleFavoriteToggle={handleFavoriteToggle}
+        handleImageClick={handleImageClick}
+        isFavorite={isFavorite}
       />
-      {isModalOpen && <PhotoDetailsModal 
-                        setIsModalOpen={setIsModalOpen} 
-                        photo={selectedPhoto}
-                        toggleFavorite={toggleFavorite}
-                        favoritePhotos={favoritePhotos}
-                        handleFavoriteToggle={handleFavoriteToggle}
-                      />}
+      {isModalOpen && <PhotoDetailsModal
+        setIsModalOpen={setIsModalOpen}
+        photo={selectedPhoto}
+        toggleFavorite={toggleFavorite}
+        favoritePhotos={favoritePhotos}
+        handleFavoriteToggle={handleFavoriteToggle}
+        handleImageClick={handleImageClick}
+      />}
     </div>
   );
 };

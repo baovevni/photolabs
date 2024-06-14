@@ -4,28 +4,18 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
 
-const PhotoListItem = ({ photo, isFavorite, toggleFavorite, setIsModalOpen, setSelectedPhoto }) => {
-
-  const handleFavoriteToggle = () => {
-    toggleFavorite(photo.id);
-  };
-
-  const handleImageClick = () => {
-    setSelectedPhoto(photo)
-    setIsModalOpen(true)
-  }
-  
+const PhotoListItem = ({ photo, isFavorite, handleFavoriteToggle, handleImageClick }) => {
   return (
     <div className="photo-list__item">
       <PhotoFavButton
         photo={photo.id}
         isFavorite={isFavorite}
-        onFavoriteToggle={handleFavoriteToggle}
+        onFavoriteToggle={() => handleFavoriteToggle(photo.id)}
       />
       <img className="photo-list__image"
         src={photo.urls.regular}
         alt={`Photo by ${photo.user.username}`}
-        onClick={handleImageClick}
+        onClick={() => handleImageClick(photo)}
       />
       <div className="photo-list__user-details">
         <img
