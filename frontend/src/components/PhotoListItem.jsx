@@ -5,7 +5,8 @@ import PhotoFavButton from './PhotoFavButton';
 
 
 const PhotoListItem = ({ photo, isFavorite, toggleFavorite, setIsModalOpen, setSelectedPhoto }) => {
-  const handleFavoriteTongle = () => {
+
+  const handleFavoriteToggle = () => {
     toggleFavorite(photo.id);
   };
 
@@ -19,7 +20,7 @@ const PhotoListItem = ({ photo, isFavorite, toggleFavorite, setIsModalOpen, setS
       <PhotoFavButton
         photo={photo}
         isFavorite={isFavorite}
-        onFavoriteToggle={handleFavoriteTongle}
+        onFavoriteToggle={handleFavoriteToggle}
       />
       <img className="photo-list__image"
         src={photo.urls.regular}
