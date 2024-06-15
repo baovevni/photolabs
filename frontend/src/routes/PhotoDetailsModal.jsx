@@ -5,7 +5,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
-const PhotoDetailsModal = ({ setIsModalOpen, photo, toggleFavorite, favoritePhotos, handleImageClick }) => {
+const PhotoDetailsModal = ({ setIsModalOpen, photo, toggleFavorite, favoritePhotos }) => {
 
   return (
     <div className="photo-details-modal">
@@ -23,27 +23,22 @@ const PhotoDetailsModal = ({ setIsModalOpen, photo, toggleFavorite, favoritePhot
         <img className="photo-details-modal__image"
           src={photo.urls.full}
           alt={`Photo by ${photo.user.username}`} />
-        <div className="photo-details-modal_header">
-          <div className="photo-details-modal__photographer-details">
-            <img
-              className="photo-details-modal__photographer-profile"
-              src={photo.user.profile}
-              alt={`${photo.user.username}'s profile`}
-            />
-            <div className="photo-details-modal__photographer-info">
-              {photo.user.username}
-              <div className="photo-details-modal__photographer-location">{photo.location.city}, {photo.location.country}
-              </div>
+        <div className="photo-details-modal__photographer-details">
+          <img
+            className="photo-details-modal__photographer-profile"
+            src={photo.user.profile}
+            alt={`${photo.user.username}'s profile`}
+          />
+          <div className="photo-details-modal__photographer-info">
+            {photo.user.username}
+            <div className="photo-details-modal__photographer-location">
+              {photo.location.city}, {photo.location.country}
             </div>
           </div>
         </div>
-      </div>
-
-      <h3>Similar Photos</h3>
-
-
-      <div className='photo-details-modal__images'>
-        <div>
+        <div className="photo-details-modal__header">
+          Similiar Photos
+        <div className='photo-details-modal__images'>
           <PhotoList
             photos={photo.similar_photos}
             toggleFavorite={toggleFavorite}
@@ -53,8 +48,12 @@ const PhotoDetailsModal = ({ setIsModalOpen, photo, toggleFavorite, favoritePhot
             handleImageClick={() => { }}
           />
         </div>
+        </div>
       </div>
     </div>
+
+
+
   )
 };
 
