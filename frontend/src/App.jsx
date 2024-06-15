@@ -1,10 +1,8 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import topics from 'mocks/topics';
-import photos from 'mocks/photos';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
@@ -16,15 +14,17 @@ const App = () => {
     handleImageClick,
     setIsModalOpen,
     setSelectedPhoto,
-    isFavorite
+    isFavorite,
+    photoData,
+    topicsData
   } = useApplicationData();
 
 
   return (
     <div className="App">
       <HomeRoute
-        photos={photos}
-        topics={topics}
+        photos={photoData}
+        topics={topicsData}
         favoritePhotos={favoritePhotos}
         toggleFavorite={toggleFavorite}
         setIsModalOpen={setIsModalOpen}
