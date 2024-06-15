@@ -5,7 +5,7 @@ import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import topics from 'mocks/topics';
 import photos from 'mocks/photos';
-import useFavorite from 'hooks/useFavorite';
+import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
   const {
@@ -18,7 +18,7 @@ const App = () => {
     setIsModalOpen,
     setSelectedPhoto,
     isFavorite
-  } = useFavorite();
+  } = useApplicationData();
 
 
   return (
