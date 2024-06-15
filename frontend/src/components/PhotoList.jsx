@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
-const PhotoList = ({ photos, favoritePhotos, toggleFavorite, setIsModalOpen, setSelectedPhoto, handleFavoriteToggle, handleImageClick }) => {
+const PhotoList = ({ photos, favoritePhotos, toggleFavorite, setIsModalOpen, setSelectedPhoto, handleImageClick }) => {
   if (!Array.isArray(photos)) {
     photos = Object.values(photos);
     }
@@ -18,7 +18,6 @@ const PhotoList = ({ photos, favoritePhotos, toggleFavorite, setIsModalOpen, set
           toggleFavorite={toggleFavorite}
           setIsModalOpen={setIsModalOpen}
           setSelectedPhoto={setSelectedPhoto}
-          handleFavoriteToggle={handleFavoriteToggle}
           handleImageClick={handleImageClick}
         />
       ))}

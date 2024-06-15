@@ -13,7 +13,6 @@ const App = () => {
     isModalOpen,
     selectedPhoto,
     toggleFavorite,
-    handleFavoriteToggle,
     handleImageClick,
     setIsModalOpen,
     setSelectedPhoto,
@@ -30,7 +29,6 @@ const App = () => {
         toggleFavorite={toggleFavorite}
         setIsModalOpen={setIsModalOpen}
         setSelectedPhoto={setSelectedPhoto}
-        handleFavoriteToggle={handleFavoriteToggle}
         handleImageClick={handleImageClick}
         isFavorite={isFavorite}
       />
@@ -39,7 +37,6 @@ const App = () => {
         photo={selectedPhoto}
         toggleFavorite={toggleFavorite}
         favoritePhotos={favoritePhotos}
-        handleFavoriteToggle={handleFavoriteToggle}
         handleImageClick={handleImageClick}
       />}
     </div>

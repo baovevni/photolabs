@@ -13,10 +13,6 @@ const useFavorite = () => {
     }
   };
 
-  const handleFavoriteToggle = (photoId) => {
-    toggleFavorite(photoId);
-  };
-
   const handleImageClick = (photo) => {
     setSelectedPhoto(photo);
     setIsModalOpen(true);
@@ -32,7 +28,6 @@ const useFavorite = () => {
     isModalOpen,
     selectedPhoto,
     toggleFavorite,
-    handleFavoriteToggle,
     handleImageClick,
     setIsModalOpen,
     setSelectedPhoto,
