@@ -16,7 +16,8 @@ const App = () => {
     setSelectedPhoto,
     isFavorite,
     photoData,
-    topicsData
+    topicsData,
+    fetchPhotosByTopic
   } = useApplicationData();
 
 
@@ -31,6 +32,7 @@ const App = () => {
         setSelectedPhoto={setSelectedPhoto}
         handleImageClick={handleImageClick}
         isFavorite={isFavorite}
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
       {isModalOpen && <PhotoDetailsModal
         setIsModalOpen={setIsModalOpen}

@@ -5,12 +5,15 @@ import PhotoList from '../components/PhotoList';
 import TopNavigationBar from '../components/TopNavigationBar';
 import photos from 'mocks/photos';
 
-const HomeRoute = ({ photos, favoritePhotos, toggleFavorite, setIsModalOpen, setSelectedPhoto, handleImageClick, isFavorite}) => {
+const HomeRoute = ({ photos, topics, favoritePhotos, toggleFavorite, setIsModalOpen, setSelectedPhoto, handleImageClick, isFavorite, fetchPhotosByTopic}) => {
 
   return (
     <div className="home-route">
       <TopNavigationBar isFavPhotoExist={favoritePhotos.length > 0}
-        isFavorite={isFavorite} favoritePhotos={favoritePhotos}
+        isFavorite={isFavorite} 
+        topics={topics}
+        favoritePhotos={favoritePhotos}
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
       <PhotoList
         photos={photos}

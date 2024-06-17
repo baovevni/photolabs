@@ -5,7 +5,7 @@ const initialState = {
   isModalOpen: false,
   selectedPhoto: null,
   photoData: [],
-  topicData: []
+  topicsData: []
 };
 
 const reducer = (state, action) => {
@@ -37,6 +37,11 @@ const reducer = (state, action) => {
         ...state,
         topicsData: action.payload,
       };
+      case 'SET_PHOTOS_BY_TOPIC':
+      return {
+        ...state,
+        photoData: action.payload,
+      };
     default:
       return state;
   }
@@ -54,7 +59,8 @@ const useApplicationData = () => {
   useEffect(() => {
     fetch('/api/topics')
       .then((response) => response.json())
-      .then((data) => dispatch({ type: 'SET_TOPICS_DATA', payload: data }));
+      .then((data) => dispatch({ type: 'SET_TOPICS_DATA', payload: data }))
+      .catch((error) => console.error('Failed to fetch topics:', error)); 
   }, []);
 
   const toggleFavorite = (photoId) => {
@@ -64,6 +70,16 @@ const useApplicationData = () => {
   const handleImageClick = (photo) => {
     dispatch({ type: 'SET_SELECTED_PHOTO', photo });
     dispatch({ type: 'SET_IS_MODAL_OPEN', isModalOpen: true });
+  };
+
+  const fetchPhotosByTopic = async (topicTitle) => {
+    try {
+      const response = await fetch(`http://localhost:8001/api/topics/photos/${topicTitle}`);
+      const data = await response.json();
+      dispatch({ type: 'SET_PHOTOS_BY_TOPIC', payload: data });
+    } catch (error) {
+      console.error('Failed to fetch photos by topic', error);
+    }
   };
 
   const isFavorite = (photo) => {
@@ -81,6 +97,7 @@ const useApplicationData = () => {
     setIsModalOpen: (isModalOpen) => dispatch({ type: 'SET_IS_MODAL_OPEN', isModalOpen }),
     setSelectedPhoto: (photo) => dispatch({ type: 'SET_SELECTED_PHOTO', photo }),
     isFavorite,
+    fetchPhotosByTopic
   };
 };
 
