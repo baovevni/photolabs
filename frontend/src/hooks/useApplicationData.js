@@ -75,7 +75,7 @@ const useApplicationData = () => {
 
   const fetchPhotosByTopic = async (topicTitle) => {
     try {
-      const response = await fetch(`http://localhost:8001/api/topics/photos/${topicTitle}`);
+      const response = await fetch(`/api/topics/photos/${topicTitle}`);
       const data = await response.json();
       dispatch({ type: 'SET_PHOTOS_BY_TOPIC', payload: data });
     } catch (error) {
