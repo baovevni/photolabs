@@ -1,7 +1,19 @@
 # react-photolabs
 The PhotoLabs project for the Web Development React course programming.
-
 # Photolabs
+
+## Description:
+
+This app is a simple Single Page Application (SPA) that represents a photo stock website where users can:
+* see pictures on the main page
+* click on any picture to see the bigger resolutions picture
+* Like/Unlike pictures
+* see related pictures
+* see pictures by topic
+
+## Screenshots
+
+
 
 ## Setup
 
