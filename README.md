@@ -12,7 +12,9 @@ This app is a simple Single Page Application (SPA) that represents a photo stock
 * see pictures by topic
 
 ## Screenshots
-
+!["Main screen of the app"](https://github.com/baovevni/photolabs/blob/master/docs/main-screen.png)
+!["Pictures by Category"](https://github.com/baovevni/photolabs/blob/master/docs/pictures-by-category.png)
+!["Selected and liked picture"](https://github.com/baovevni/photolabs/blob/master/docs/selected-and-liked-picture.png)
 
 
 ## Setup
