@@ -53,7 +53,8 @@ const useApplicationData = () => {
   useEffect(() => {
     fetch('/api/photos')
       .then((response) => response.json())
-      .then((data) => dispatch({ type: 'SET_PHOTO_DATA', payload: data }));
+      .then((data) => dispatch({ type: 'SET_PHOTO_DATA', payload: data }))
+      .catch((error) => console.error('Failed to fetch photos:', error)); 
   }, []);
 
   useEffect(() => {
